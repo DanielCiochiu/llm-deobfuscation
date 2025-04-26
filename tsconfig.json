@@ -4,11 +4,12 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "jsx": "react",
+    "jsxImportSource": "solid-js",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "types": ["node"],
+    "types": ["vite/client", "solid-js"],
     "outDir": "dist",
   },
   "include": [

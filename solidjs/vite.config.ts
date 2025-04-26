@@ -1,14 +1,20 @@
 // @ts-ignore
 import { viteObfuscateFile } from 'vite-plugin-obfuscator';
 import { defineConfig } from 'vite';
+import solidPlugin from 'vite-plugin-solid';
 import { viteExternalsPlugin } from 'vite-plugin-externals';
 
 export default defineConfig({
     plugins: [
-        viteExternalsPlugin({
-            react: 'React',
-            'react-dom': 'ReactDOM',
-            'react-dom/client': 'ReactDOM'
+        // viteExternalsPlugin({
+        //     'solid-js': 'Solid',
+        //     'solid-js/web': 'SolidWeb'
+        // }),
+        solidPlugin({
+            solid: {
+                generate: 'dom',
+                hydratable: true
+            }
         }),
         viteObfuscateFile({
             deadCodeInjection: true,
@@ -18,19 +24,19 @@ export default defineConfig({
             mangle: true
         })
     ],
+    resolve: {
+        conditions: ['development', 'browser']
+    },
     build: {
+        target: 'esnext',
         rollupOptions: {
-            external: ['react', 'react-dom', 'react-dom/client'],
+            external: ['solid-js', 'solid-js/web'],
             output: {
                 globals: {
-                    react: 'React',
-                    'react-dom': 'ReactDOM',
-                    'react-dom/client': 'ReactDOM'
+                    'solid-js': 'Solid',
+                    'solid-js/web': 'SolidWeb'
                 }
             }
         }
-    },
-    optimizeDeps: {
-        exclude: ['react', 'react-dom', 'react-dom/client']
     }
 });

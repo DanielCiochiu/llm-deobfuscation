@@ -24,3 +24,7 @@ react/dist/*
 svelte/package-lock.json
 svelte/node_modules/*
 svelte/dist/*
+
+solidjs/package-lock.json
+solidjs/node_modules/*
+solidjs/dist/*
