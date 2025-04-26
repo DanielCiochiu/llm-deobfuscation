@@ -22,3 +22,8 @@ export type { AccountViewProps } from './src/ui/components/AccountView';
 export type { LoginViewProps } from './src/ui/components/LoginView';
 export type { MenuViewProps } from './src/ui/components/MenuView';
 export type { OrdersViewProps } from './src/ui/components/OrdersView';
+
+/**
+ * Exporting stubs
+ */
+export * from './src/data/stubs';
