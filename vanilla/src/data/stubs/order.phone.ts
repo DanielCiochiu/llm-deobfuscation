@@ -11,7 +11,7 @@ export const OrderPhone: OrderData = {
     // the total value of the order
     total: 1360,
     // the currency of the order
-    currency: '$',
+    currency: 'EUR',
     // the list of products for a given order
     products: [productIphone, productHeadphones, productInsurance],
 };

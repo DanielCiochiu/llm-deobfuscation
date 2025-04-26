@@ -46,4 +46,17 @@ export abstract class CustomElement<T extends Record<string, any> = {}> extends 
      * Returns the template for this element
      */
     abstract template(): string | null;
+
+    /**
+     * Removes all children of this HTMLElement instance
+     */
+    removeAllChildren(except: Array<CustomElement> = []): void {
+        for (let i = 0; i < this.children.length; i++) {
+            const child = this.children[i];
+            // checking if the child is in the except list
+            if (except.includes(child as CustomElement)) continue;
+            // removing the child element
+            this.removeChild(child);
+        }
+    }
 }

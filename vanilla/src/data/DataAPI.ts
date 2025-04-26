@@ -37,7 +37,7 @@ export class DataAPI {
     /**
      * Returns the list of orders for this user
      */
-    async getOrders(): Promise<Array<Order> | null> {
+    async getOrders(): Promise<Array<Order>> {
         if (this.currentUser === null) {
             throw new Error('The user is not authenticated for this operation');
         }

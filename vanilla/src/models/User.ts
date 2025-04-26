@@ -33,4 +33,18 @@ export class User<CustomUserData extends UserData = UserData> {
     getEmail(): string {
         return this.data.email;
     }
+
+    /**
+     * Returns the created date for the account
+     */
+    getCreatedDate(): Date {
+        return new Date(this.data.date_created);
+    }
+
+    /**
+     * Returns the date when the user last accessed his account
+     */
+    getLastAccessedDate(): Date {
+        return new Date(this.data.date_last_accessed);
+    }
 }
