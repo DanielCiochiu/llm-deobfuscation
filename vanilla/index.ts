@@ -9,6 +9,11 @@ export { AppController } from './src/controllers/AppController';
 export * from './src/helpers/formatters';
 
 /**
+ * Exporting helper functions
+ */
+export { getFormattedDate, getUserFullName, formatPrice } from './src/helpers/formatters';
+
+/**
  * Exporting props that will be shared across other implementations
  */
 export type { UIInterface } from './src/ui/UIInterface';
