@@ -1,0 +1,15 @@
+{
+  "name": "js-obfuscation-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^3.5.2",
+    "typescript": "~5.7.2"
+  },
+  "private": true
+}
