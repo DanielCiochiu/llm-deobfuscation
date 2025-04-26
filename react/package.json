@@ -1,0 +1,23 @@
+{
+  "name": "js-obfuscation-vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "workspaces": [
+    "../vanilla"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vite-plugin-obfuscator": "^1.0.5"
+  },
+  "private": true
+}

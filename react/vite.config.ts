@@ -11,5 +11,16 @@ export default defineConfig({
             debugProtectionInterval: 1000,
             mangle: true
         })
-    ]
+    ],
+    build: {
+        rollupOptions: {
+            external: ['react', 'react-dom'],
+            output: {
+                globals: {
+                    react: 'React',
+                    'react-dom': 'ReactDOM'
+                }
+            }
+        }
+    }
 });

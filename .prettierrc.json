@@ -4,5 +4,6 @@
   "singleQuote": true,
   "arrowParens": "avoid",
   "printWidth": 180,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "jsxSingleQuote": false
 }
