@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "ng serve",
-    "build": "ng build --prod && npm run obfuscate",
+    "build": "ng build --configuration production && npm run obfuscate",
     "obfuscate": "javascript-obfuscator dist/angular-ui-app --output dist/obfuscated --compact true"
   },
   "dependencies": {
