@@ -16,6 +16,9 @@ export class AppController {
      */
     connectUI(ui: UIInterface) {
         this.ui = ui;
+
+        // showing the login form by default
+        this.ui.showLogin();
     }
 
     /**

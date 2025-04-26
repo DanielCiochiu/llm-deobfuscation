@@ -11,3 +11,6 @@ yarn-error.log*
 .vscode/*
 .idea/*
 package-lock.json
+
+vanilla/package-lock.json
+vanilla/node_modules/*

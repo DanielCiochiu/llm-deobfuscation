@@ -15,7 +15,7 @@ export class DataAPI {
      * Does the authentication and returns a User if everything went ok or null if credentials are invalid
      */
     async authenticate(user: string, password: string): Promise<User | null> {
-        const response: UserData | null = user === 'bob.doe@noaddress.com' ? BobDoe : user === 'john.doe@noaddress.com' ? JohnDoe : null;
+        const response: UserData | null = user === 'bob' ? BobDoe : user === 'john' ? JohnDoe : null;
         this.currentUser = response ? new User(response) : null;
         return this.currentUser;
     }

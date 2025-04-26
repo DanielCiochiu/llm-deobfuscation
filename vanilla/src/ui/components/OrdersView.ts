@@ -21,31 +21,51 @@ export class OrdersView extends CustomElement<OrdersViewProps> {
     template(): string {
         const orders = this.props.orders;
 
-        return `
-        <ul>
-            ${orders
-                .map(
-                    order => `<li>
-                        <strong>Order ID:</strong> ${order.getId()} <br />
-                        <strong>Status:</strong> ${order.getStatus()} <br />
-                        <strong>Total Value:</strong> ${formatPrice(order.getTotalValue(), order.getCurrency())} <br />
-                        <strong>Products:</strong>
-                        <ul>
-                            ${order
-                                .getProducts()
-                                .map(
-                                    product => `<li>
-                                        <strong>Product Name:</strong> ${product.getName()} <br />
-                                        <strong>Quantity:</strong> ${product.getQuantity()} <br />
-                                        <strong>Price:</strong> ${product.getPrice().toFixed(2)} ${order.getCurrency()}
-                                    </li>`
-                                )
-                                .join('')}
-                        </ul>
-                    </li>`
-                )
-                .join('')}
-        </ul>
-    `;
+        return `<div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Status</th>
+                        <th>Total Value</th>
+                        <th>Products</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${orders
+                        .map(
+                            order => `<tr>
+                                <td>${order.getId()}</td>
+                                <td>${order.getStatus()}</td>
+                                <td>${formatPrice(order.getTotalValue(), order.getCurrency())}</td>
+                                <td>
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th>Product Name</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${order
+                                                .getProducts()
+                                                .map(
+                                                    product => `<tr>
+                                                        <td>${product.getName()}</td>
+                                                        <td>${product.getQuantity()}</td>
+                                                        <td>${product.getPrice().toFixed(2)} ${order.getCurrency()}</td>
+                                                    </tr>`
+                                                )
+                                                .join('')}
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>`
+                        )
+                        .join('')}
+                </tbody>
+            </table>
+        </div>`;
     }
 }

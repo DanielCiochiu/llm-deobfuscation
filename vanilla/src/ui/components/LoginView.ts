@@ -22,11 +22,11 @@ export class LoginView extends CustomElement<LoginViewProps> {
     }
 
     template() {
-        return `
+        return `<div>
             <h1>Login</h1>
             <input type="text" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
             <button>Login</button>
-        `;
+        </div>`;
     }
 }
