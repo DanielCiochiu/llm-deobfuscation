@@ -3,13 +3,14 @@
     "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "jsx": "react",
+    "jsx": "react-jsx", // or got for "react"
     "jsxImportSource": "solid-js",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "types": ["vite/client", "solid-js"],
+    // "types": ["vite/client", "solid-js"], // for all other samples except vanilla
+    "types": ["node"], // for building the vanilla sample
     "outDir": "dist",
   },
   "include": [
