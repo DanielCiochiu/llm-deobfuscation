@@ -18,13 +18,16 @@ export default defineConfig({
         })
     ],
     optimizeDeps: {
-        exclude: ['@vanilla']
+        exclude: ['svelte', 'svelte/internal']
     },
     build: {
         rollupOptions: {
-            external: [],
+            external: ['svelte', 'svelte/internal'],
             output: {
-                globals: {}
+                globals: {
+                    svelte: 'Svelte',
+                    'svelte/internal': 'SvelteInternal'
+                }
             }
         }
     }
