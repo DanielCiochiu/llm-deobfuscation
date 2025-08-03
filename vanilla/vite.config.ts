@@ -1,15 +1,14 @@
-// @ts-ignore
-import { viteObfuscateFile } from 'vite-plugin-obfuscator';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    plugins: [
-        viteObfuscateFile({
-            deadCodeInjection: true,
-            deadCodeInjectionThreshold: 0.4,
-            debugProtection: true,
-            debugProtectionInterval: 1000,
-            mangle: true
-        })
-    ]
+    plugins: [],
+    build: {
+        rollupOptions: {
+            output: {
+                entryFileNames: 'vanilla.js',
+                chunkFileNames: 'vanilla-[hash].js',
+                assetFileNames: 'assets/[name]-[hash][extname]'
+            }
+        }
+    }
 });

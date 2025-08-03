@@ -5,12 +5,18 @@
   "main": "index.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build && cp dist/vanilla.js ../output/vanilla.js && npm run obfuscate-default && npm run obfuscate-low && npm run obfuscate-medium && npm run obfuscate-high",
+    "obfuscate-default": "javascript-obfuscator ../output/vanilla.js --config ../obfuscation-configurations/defaultObfuscation.js --output ../output/default/vanilla-obfuscated.js",
+    "obfuscate-low": "javascript-obfuscator ../output/vanilla.js --config ../obfuscation-configurations/lowObfuscation.js --output ../output/low/vanilla-obfuscated.js",
+    "obfuscate-medium": "javascript-obfuscator ../output/vanilla.js --config ../obfuscation-configurations/mediumObfuscation.js --output ../output/medium/vanilla-obfuscated.js",
+    "obfuscate-high": "javascript-obfuscator ../output/vanilla.js --config ../obfuscation-configurations/highObfuscation.js --output ../output/high/vanilla-obfuscated.js"
   },
   "devDependencies": {
     "typescript": "~5.7.2",
-    "vite": "^6.1.0",
-    "vite-plugin-obfuscator": "^1.0.5"
+    "vite": "^6.1.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.1"
+  }
 }

@@ -8,15 +8,21 @@
   ],
   "scripts": {
     "dev": "vite --config vite.config.ts",
-    "build": "vite --config vite.config.ts build"
+    "build": "vite build && cp dist/react.js ../output/react.js && npm run obfuscate-default && npm run obfuscate-low && npm run obfuscate-medium && npm run obfuscate-high",
+    "obfuscate-default": "javascript-obfuscator ../output/react.js --config ../obfuscation-configurations/defaultObfuscation.js --output ../output/default/react-obfuscated.js",
+    "obfuscate-low": "javascript-obfuscator ../output/react.js --config ../obfuscation-configurations/lowObfuscation.js --output ../output/low/react-obfuscated.js",
+    "obfuscate-medium": "javascript-obfuscator ../output/react.js --config ../obfuscation-configurations/mediumObfuscation.js --output ../output/medium/react-obfuscated.js",
+    "obfuscate-high": "javascript-obfuscator ../output/react.js --config ../obfuscation-configurations/highObfuscation.js --output ../output/high/react-obfuscated.js"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "typescript": "~5.7.2",
     "vite": "^6.1.0",
-    "vite-plugin-externals": "^0.6.2",
-    "vite-plugin-obfuscator": "^1.0.5"
+    "vite-plugin-externals": "^0.6.2"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.1"
+  }
 }

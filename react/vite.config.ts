@@ -1,5 +1,3 @@
-// @ts-ignore
-import { viteObfuscateFile } from 'vite-plugin-obfuscator';
 import { defineConfig } from 'vite';
 import { viteExternalsPlugin } from 'vite-plugin-externals';
 
@@ -9,19 +7,15 @@ export default defineConfig({
             react: 'React',
             'react-dom': 'ReactDOM',
             'react-dom/client': 'ReactDOM'
-        }),
-        viteObfuscateFile({
-            deadCodeInjection: true,
-            deadCodeInjectionThreshold: 0.4,
-            debugProtection: true,
-            debugProtectionInterval: 1000,
-            mangle: true
         })
     ],
     build: {
         rollupOptions: {
-            external: ['react', 'react-dom', 'react-dom/client'],
+            external: ['react', 'react-dom', 'react-dom/client', 'solid-js/jsx-runtime'],
             output: {
+                entryFileNames: 'react.js',
+                chunkFileNames: 'react-[hash].js',
+                assetFileNames: 'assets/[name]-[hash][extname]',
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',

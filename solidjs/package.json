@@ -4,14 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build && cp dist/solid.js ../output/solid.js && npm run obfuscate-default && npm run obfuscate-low && npm run obfuscate-medium && npm run obfuscate-high",
+    "obfuscate-default": "javascript-obfuscator ../output/solid.js --config ../obfuscation-configurations/defaultObfuscation.js --output ../output/default/solid-obfuscated.js",
+    "obfuscate-low": "javascript-obfuscator ../output/solid.js --config ../obfuscation-configurations/lowObfuscation.js --output ../output/low/solid-obfuscated.js",
+    "obfuscate-medium": "javascript-obfuscator ../output/solid.js --config ../obfuscation-configurations/mediumObfuscation.js --output ../output/medium/solid-obfuscated.js",
+    "obfuscate-high": "javascript-obfuscator ../output/solid.js --config ../obfuscation-configurations/highObfuscation.js --output ../output/high/solid-obfuscated.js"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
     "vite": "^5.2.0",
     "vite-plugin-externals": "^0.6.2",
-    "vite-plugin-obfuscator": "^1.0.5",
     "vite-plugin-solid": "^2.4.0"
+  },
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.1"
   }
 }

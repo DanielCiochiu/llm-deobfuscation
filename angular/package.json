@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "ng serve",
-    "build": "ng build --configuration production && npm run obfuscate",
-    "obfuscate": "javascript-obfuscator dist/angular-ui-app --output dist/obfuscated --compact true"
+    "build": "ng build --configuration production && cp dist/main.js ../output/angular.js && npm run obfuscate-default && npm run obfuscate-low && npm run obfuscate-medium && npm run obfuscate-high",
+    "obfuscate-default": "javascript-obfuscator ../output/angular.js --config ../obfuscation-configurations/defaultObfuscation.js --output ../output/default/angular-obfuscated.js",
+    "obfuscate-low": "javascript-obfuscator ../output/angular.js --config ../obfuscation-configurations/lowObfuscation.js --output ../output/low/angular-obfuscated.js",
+    "obfuscate-medium": "javascript-obfuscator ../output/angular.js --config ../obfuscation-configurations/mediumObfuscation.js --output ../output/medium/angular-obfuscated.js",
+    "obfuscate-high": "javascript-obfuscator ../output/angular.js --config ../obfuscation-configurations/highObfuscation.js --output ../output/high/angular-obfuscated.js"
   },
   "dependencies": {
     "@angular/animations": "17.3.12",

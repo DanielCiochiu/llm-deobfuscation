@@ -5,17 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build && cp dist/svelte.js ../output/svelte.js && npm run obfuscate-default && npm run obfuscate-low && npm run obfuscate-medium && npm run obfuscate-high",
+    "obfuscate-default": "javascript-obfuscator ../output/svelte.js --config ../obfuscation-configurations/defaultObfuscation.js --output ../output/default/svelte-obfuscated.js",
+    "obfuscate-low": "javascript-obfuscator ../output/svelte.js --config ../obfuscation-configurations/lowObfuscation.js --output ../output/low/svelte-obfuscated.js",
+    "obfuscate-medium": "javascript-obfuscator ../output/svelte.js --config ../obfuscation-configurations/mediumObfuscation.js --output ../output/medium/svelte-obfuscated.js",
+    "obfuscate-high": "javascript-obfuscator ../output/svelte.js --config ../obfuscation-configurations/highObfuscation.js --output ../output/high/svelte-obfuscated.js"
   },
   "dependencies": {
+    "javascript-obfuscator": "^4.1.1",
     "svelte": "^4.2.9"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "svelte-preprocess": "^5.1.3",
     "typescript": "^5.4.0",
-    "vite": "^5.2.0",
-    "vite-plugin-obfuscator": "^1.0.5"
+    "vite": "^5.2.0"
   }
 }
